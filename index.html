@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PT. Softstudio Network — Sistem Inventory Gudang</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= HALAMAN LOGIN ================= -->
+<div id="view-login">
+  <div class="safety-strip"></div>
+  <form class="login-card" id="login-form" autocomplete="off">
+    <div class="login-logo" id="login-logo-box" title="Klik untuk memasang logo perusahaan">
+      <img id="login-logo" alt="Logo perusahaan" hidden>
+      <span id="login-logo-hint">PASANG<br>LOGO<br>DI SINI</span>
+      <input type="file" id="logo-input" accept="image/*" hidden>
+    </div>
+    <div class="login-company">
+      <h1 id="login-company-name">PT. SOFTSTUDIO NETWORK</h1>
+      <p>Sistem Kendali Gudang &amp; Inventory</p>
+    </div>
+    <div class="login-fields">
+      <label>Username<input type="text" id="login-user" placeholder="username" required></label>
+      <label>Password<input type="password" id="login-pass" placeholder="••••••••" required></label>
+      <div id="login-err" class="login-err"></div>
+      <button type="submit" class="btn primary btn-block">Masuk ke Sistem</button>
+    </div>
+    <div class="login-foot">
+      <span>Akun awal: <b>admin</b> / <b>admin123</b> — bisa diganti di menu Pengaturan.</span>
+      <span class="mono">GEDUNG A · LEMBAR KENDALI STOK · v1.0</span>
+    </div>
+  </form>
+</div>
+
+<!-- ================= APLIKASI ================= -->
+<div id="app" hidden>
+  <aside id="sidebar">
+    <div class="side-brand">
+      <div class="side-logo" id="side-logo-box">
+        <img id="side-logo" alt="Logo" hidden>
+        <span id="side-logo-mono">SN</span>
+      </div>
+      <div class="side-name" id="side-company">PT. SOFTSTUDIO NETWORK</div>
+    </div>
+    <nav id="side-nav">
+      <button class="nav-item active" data-page="dashboard"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></button>
+      <button class="nav-item" data-page="inventory"><i data-lucide="boxes"></i><span>Inventaris</span></button>
+      <button class="nav-item" data-page="out"><i data-lucide="clipboard-list"></i><span>Ticket Keluar</span><em id="nav-out-badge" class="nav-badge" hidden></em></button>
+      <button class="nav-item" data-page="fix"><i data-lucide="wrench"></i><span>Ticket Perbaikan</span><em id="nav-fix-badge" class="nav-badge" hidden></em></button>
+      <button class="nav-item" data-page="album"><i data-lucide="images"></i><span>Album Foto</span></button>
+      <button class="nav-item" data-page="techs"><i data-lucide="users"></i><span>Teknisi</span></button>
+      <button class="nav-item" data-page="log"><i data-lucide="history"></i><span>Riwayat Stok</span></button>
+      <button class="nav-item" data-page="settings"><i data-lucide="settings"></i><span>Pengaturan</span></button>
+    </nav>
+    <div class="side-foot">
+      <span id="side-user">—</span>
+      <button id="btn-logout" title="Keluar"><i data-lucide="log-out"></i></button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header id="topbar">
+      <h2 id="page-title">Dashboard</h2>
+      <div class="topbar-right">
+        <span class="top-date mono" id="top-date"></span>
+        <span class="user-chip" id="top-user"></span>
+      </div>
+    </header>
+    <main id="content"></main>
+  </div>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+<div id="lightbox" hidden></div>
+<div id="print-area"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="data.js"></script>
+<script src="excel.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
